@@ -8,10 +8,8 @@ interface IPPokemonCard {
 
 function PokemonCard({ pokemon }: IPPokemonCard) {
   return (
-    <Card style={{ width: "20rem" }}>
-      <Card.Title style={{ textAlign: "center", textTransform: "capitalize" }}>
-        {pokemon.name}
-      </Card.Title>
+    <Card className="card-container">
+      <Card.Title className="card-title">{pokemon.name}</Card.Title>
       <Card.Img
         variant="top"
         src={pokemon.sprites?.other?.["official-artwork"].front_default}
@@ -24,7 +22,7 @@ function PokemonCard({ pokemon }: IPPokemonCard) {
             </Badge>
           ))}
         </Stack>
-        <Tabs style={{ marginTop: "10px" }} defaultActiveKey="general" justify>
+        <Tabs className="card-tabs" defaultActiveKey="general" justify>
           <Tab eventKey="general" title="General">
             <LabelStats name="experience" value={pokemon.base_experience} />
             <LabelStats name="height" value={`${pokemon.height / 10}cm`} />

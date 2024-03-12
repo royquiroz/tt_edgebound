@@ -5,15 +5,8 @@ interface IPLabelStats {
 
 function LabelStats({ name, value }: IPLabelStats) {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        marginTop: "8px",
-      }}
-    >
-      <h6 style={{ textTransform: "capitalize" }}>{name}</h6>
+    <div className="label-stats">
+      <h6>{name}</h6>
       <p>{value}</p>
     </div>
   );

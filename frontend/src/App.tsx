@@ -3,13 +3,12 @@ import { Container, Row, Col } from "react-bootstrap";
 import SearchBar from "./components/Search";
 import PokemonCard from "./components/Card";
 import { Pokemon } from "./interfaces/interfaces";
+import "./styles/index.css";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [searchPokemon, setSearchPokemon] = useState(null);
   const [pokemon, setPokemon] = useState<Pokemon | null>(null);
-
-  console.log({ searchPokemon });
 
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${searchPokemon}`)
@@ -18,7 +17,8 @@ function App() {
         setPokemon(pokemon);
         setIsLoading(false);
       })
-      .catch((err) => {
+      .catch((err: any) => {
+        console.error(err);
         setSearchPokemon(null);
       });
   }, [searchPokemon]);
@@ -30,13 +30,12 @@ function App() {
   }
 
   return (
-    <Container style={{ marginTop: "25px" }}>
+    <Container className="app-container">
       <Row>
         <Col md={{ span: 5, offset: 3 }}>
           <img
-            style={{ marginBottom: "15px" }}
+            className="main-img"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/2560px-International_Pok%C3%A9mon_logo.svg.png"
-            width="100%"
             alt="pokemon_logo"
           />
         </Col>
@@ -46,7 +45,7 @@ function App() {
           <SearchBar setSearch={setSearchPokemon} />
         </Col>
       </Row>
-      <Row style={{ marginTop: "25px" }}>
+      <Row className="row-card-container">
         <Col md={{ span: 6, offset: 4 }}>{renderComponents()}</Col>
       </Row>
     </Container>

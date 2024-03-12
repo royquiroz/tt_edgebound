@@ -1,0 +1,36 @@
+.app-container {
+  margin-top: 25px;
+}
+
+.main-img {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.row-card-container {
+  margin-top: 25px;
+}
+
+.label-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+
+  h6 {
+    text-transform: capitalize;
+  }
+}
+
+.card-container {
+  width: 20rem;
+
+  .card-title {
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+  .card-tabs {
+    margin-top: 10px;
+  }
+}
